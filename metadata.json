@@ -1,0 +1,6 @@
+{
+  "name": "VelvetNoir - Premium Adult Entertainment & Cinema Platform",
+  "description": "A modern, responsive, high-end entertainment platform featuring dark aesthetics, 18+ age verification, categorized content cards, video player preview, and single-file HTML Blogger exporter.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

@@ -1,0 +1,1634 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- PLACEHOLDER: SEO_TITLE -->
+  <title>VelvetNoir | Premium Entertainment &amp; Cinema</title>
+  
+  <!-- PLACEHOLDER: SEO_DESCRIPTION -->
+  <meta name="description" content="VelvetNoir - Modern premium 4K entertainment platform featuring curated releases, consenting adult productions, and high-dynamic-range cinema.">
+  <meta name="robots" content="index, follow">
+
+  <!-- Google Fonts: Plus Jakarta Sans & Cinzel -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    /* ==========================================================================
+       VELVETNOIR PREMIUM BLOGGER THEME STYLESHEET
+       Variables & High-Performance Modern CSS
+       ========================================================================== */
+    :root {
+      --bg-canvas: #09090d;
+      --bg-surface: #11111a;
+      --bg-surface-elevated: #181824;
+      --bg-surface-card: #14141f;
+      --border-subtle: #242436;
+      --border-hover: #7e22ce;
+      --text-main: #f1f5f9;
+      --text-muted: #94a3b8;
+      --text-dim: #64748b;
+      --accent-purple: #8b5cf6;
+      --accent-purple-glow: rgba(139, 92, 246, 0.25);
+      --accent-crimson: #e11d48;
+      --accent-gradient: linear-gradient(135deg, #8b5cf6 0%, #e11d48 100%);
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-lg: 16px;
+      --radius-full: 9999px;
+      --font-body: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+      --font-display: 'Cinzel', serif;
+      --transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-canvas);
+      color: var(--text-main);
+      font-family: var(--font-body);
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      font-family: inherit;
+      cursor: pointer;
+      border: none;
+      background: none;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1360px;
+      margin: 0 auto;
+      padding: 0 1.25rem;
+    }
+
+    /* ==========================================================================
+       18+ AGE VERIFICATION MODAL
+       ========================================================================== */
+    .age-gate-backdrop {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      background: rgba(4, 4, 7, 0.94);
+      backdrop-filter: blur(12px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+      opacity: 1;
+      visibility: visible;
+      transition: opacity 0.4s ease, visibility 0.4s ease;
+    }
+
+    .age-gate-backdrop.hidden {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
+
+    .age-gate-modal {
+      background: var(--bg-surface);
+      border: 1px solid #3b2854;
+      border-radius: var(--radius-lg);
+      max-width: 520px;
+      width: 100%;
+      padding: 2.25rem 2rem;
+      text-align: center;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.8), 0 0 80px rgba(139, 92, 246, 0.15);
+      position: relative;
+    }
+
+    .age-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.25rem 0.75rem;
+      background: rgba(225, 29, 72, 0.12);
+      border: 1px solid rgba(225, 29, 72, 0.3);
+      color: #fda4af;
+      border-radius: var(--radius-full);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      margin-bottom: 1rem;
+    }
+
+    .age-title {
+      font-size: 1.75rem;
+      font-weight: 800;
+      color: #ffffff;
+      margin-bottom: 0.75rem;
+    }
+
+    .age-text {
+      color: var(--text-muted);
+      font-size: 0.875rem;
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+    }
+
+    .age-compliance-box {
+      background: #161624;
+      border: 1px solid #28283d;
+      border-radius: var(--radius-md);
+      padding: 0.875rem 1rem;
+      text-align: left;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      margin-bottom: 1.5rem;
+    }
+
+    .age-compliance-box p {
+      margin-bottom: 0.5rem;
+    }
+    .age-compliance-box p:last-child {
+      margin-bottom: 0;
+    }
+
+    .age-actions {
+      display: flex;
+      gap: 0.75rem;
+    }
+
+    .btn-exit {
+      flex: 1;
+      padding: 0.75rem 1rem;
+      background: #1c1c2b;
+      border: 1px solid #33334d;
+      color: var(--text-muted);
+      border-radius: var(--radius-md);
+      font-weight: 600;
+      font-size: 0.875rem;
+      transition: var(--transition);
+    }
+    .btn-exit:hover {
+      background: #252538;
+      color: #fff;
+    }
+
+    .btn-enter {
+      flex: 1.2;
+      padding: 0.75rem 1rem;
+      background: var(--accent-gradient);
+      color: #ffffff;
+      border-radius: var(--radius-md);
+      font-weight: 700;
+      font-size: 0.875rem;
+      box-shadow: 0 10px 20px -5px rgba(139, 92, 246, 0.4);
+      transition: var(--transition);
+    }
+    .btn-enter:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 12px 24px -4px rgba(139, 92, 246, 0.6);
+    }
+
+    /* ==========================================================================
+       HEADER & TOP BAR (Strict 3-Zone Contract)
+       ========================================================================== */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(9, 9, 13, 0.92);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+      height: 72px;
+    }
+
+    .brand-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-family: var(--font-display);
+      font-size: 1.4rem;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      color: #ffffff;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .brand-logo span.dot {
+      color: var(--accent-crimson);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1.75rem;
+    }
+
+    .nav-link {
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      white-space: nowrap;
+      transition: var(--transition);
+      position: relative;
+    }
+    .nav-link:hover, .nav-link.active {
+      color: #ffffff;
+    }
+    .nav-link.active::after {
+      content: '';
+      position: absolute;
+      bottom: -6px;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: var(--accent-purple);
+      border-radius: 2px;
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.875rem;
+      flex-shrink: 0;
+    }
+
+    .search-bar {
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+
+    .search-input {
+      width: 220px;
+      background: #141420;
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-full);
+      padding: 0.5rem 1rem 0.5rem 2.25rem;
+      font-size: 0.8125rem;
+      color: #fff;
+      outline: none;
+      transition: var(--transition);
+    }
+    .search-input:focus {
+      width: 280px;
+      border-color: var(--accent-purple);
+      box-shadow: 0 0 0 3px var(--accent-purple-glow);
+    }
+    .search-icon {
+      position: absolute;
+      left: 0.85rem;
+      pointer-events: none;
+      width: 14px;
+      height: 14px;
+      fill: none;
+      stroke: var(--text-dim);
+      stroke-width: 2;
+    }
+
+    .btn-vip {
+      padding: 0.5rem 1.1rem;
+      background: rgba(139, 92, 246, 0.15);
+      border: 1px solid rgba(139, 92, 246, 0.4);
+      color: #d8b4fe;
+      border-radius: var(--radius-full);
+      font-size: 0.8125rem;
+      font-weight: 600;
+      white-space: nowrap;
+      transition: var(--transition);
+    }
+    .btn-vip:hover {
+      background: var(--accent-purple);
+      color: #ffffff;
+    }
+
+    /* ==========================================================================
+       HERO FEATURED SPOTLIGHT
+       ========================================================================== */
+    .hero-section {
+      padding: 2rem 0 3rem;
+    }
+
+    .hero-card {
+      position: relative;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      aspect-ratio: 21 / 9;
+      min-height: 420px;
+      background: #11111a;
+      border: 1px solid var(--border-subtle);
+      display: flex;
+      align-items: flex-end;
+      box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.7);
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: brightness(0.85);
+      transition: transform 0.8s ease;
+    }
+    .hero-card:hover .hero-bg {
+      transform: scale(1.02);
+    }
+
+    .hero-scrim {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(9, 9, 13, 0.98) 0%, rgba(9, 9, 13, 0.6) 45%, rgba(9, 9, 13, 0.2) 100%);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 10;
+      padding: 2.5rem;
+      max-width: 780px;
+    }
+
+    .hero-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #f43f5e;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 0.5rem;
+    }
+
+    .hero-title {
+      font-size: clamp(1.75rem, 3.5vw, 2.75rem);
+      font-weight: 800;
+      line-height: 1.15;
+      color: #ffffff;
+      margin-bottom: 0.75rem;
+      text-wrap: balance;
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.6rem;
+      font-size: 0.8125rem;
+      color: var(--text-muted);
+      margin-bottom: 1rem;
+    }
+    .hero-meta .tag-quality {
+      background: rgba(139, 92, 246, 0.2);
+      border: 1px solid rgba(139, 92, 246, 0.4);
+      color: #d8b4fe;
+      padding: 0.15rem 0.5rem;
+      border-radius: var(--radius-sm);
+      font-weight: 700;
+    }
+
+    .hero-desc {
+      font-size: 0.875rem;
+      color: #cbd5e1;
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .hero-buttons {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .btn-play-hero {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.75rem 1.75rem;
+      background: var(--accent-gradient);
+      color: #ffffff;
+      border-radius: var(--radius-md);
+      font-weight: 700;
+      font-size: 0.875rem;
+      transition: var(--transition);
+      box-shadow: 0 10px 25px -5px rgba(139, 92, 246, 0.5);
+    }
+    .btn-play-hero:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 28px -4px rgba(139, 92, 246, 0.7);
+    }
+
+    /* ==========================================================================
+       CATEGORY NAVIGATION PILLS & TABS
+       ========================================================================== */
+    .category-section {
+      padding: 0.5rem 0 2rem;
+    }
+
+    .category-bar {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      overflow-x: auto;
+      padding-bottom: 0.5rem;
+      scrollbar-width: none;
+    }
+    .category-bar::-webkit-scrollbar {
+      display: none;
+    }
+
+    .category-btn {
+      padding: 0.55rem 1.1rem;
+      border-radius: var(--radius-full);
+      font-size: 0.8125rem;
+      font-weight: 600;
+      white-space: nowrap;
+      background: #13131e;
+      border: 1px solid var(--border-subtle);
+      color: var(--text-muted);
+      transition: var(--transition);
+    }
+    .category-btn:hover {
+      background: #1d1d2e;
+      color: #ffffff;
+      border-color: #3f3f5a;
+    }
+    .category-btn.active {
+      background: var(--accent-purple);
+      color: #ffffff;
+      border-color: var(--accent-purple);
+      box-shadow: 0 4px 14px rgba(139, 92, 246, 0.35);
+    }
+
+    /* ==========================================================================
+       SECTION HEADERS & CONTENT GRIDS
+       ========================================================================== */
+    .section-title-wrap {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      margin-bottom: 1.25rem;
+    }
+
+    .section-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .section-title::before {
+      content: '';
+      display: inline-block;
+      width: 4px;
+      height: 18px;
+      background: var(--accent-purple);
+      border-radius: 2px;
+    }
+
+    .section-link {
+      font-size: 0.8125rem;
+      color: var(--accent-purple);
+      font-weight: 600;
+    }
+    .section-link:hover {
+      text-decoration: underline;
+    }
+
+    .video-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 3rem;
+    }
+
+    /* ==========================================================================
+       INDIVIDUAL VIDEO CARDS
+       ========================================================================== */
+    .video-card {
+      background: var(--bg-surface-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      display: flex;
+      flex-col;
+      flex-direction: column;
+      cursor: pointer;
+      transition: var(--transition);
+      position: relative;
+    }
+    .video-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(139, 92, 246, 0.5);
+      box-shadow: 0 16px 32px -8px rgba(0, 0, 0, 0.7), 0 0 20px rgba(139, 92, 246, 0.15);
+    }
+
+    .card-thumb-wrap {
+      position: relative;
+      aspect-ratio: 16 / 9;
+      width: 100%;
+      background: #0d0d14;
+      overflow: hidden;
+    }
+
+    .card-thumb {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    .video-card:hover .card-thumb {
+      transform: scale(1.06);
+    }
+
+    .card-thumb-scrim {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.2) 40%, transparent 100%);
+      pointer-events: none;
+    }
+
+    .card-play-overlay {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: var(--transition);
+      pointer-events: none;
+    }
+    .video-card:hover .card-play-overlay {
+      opacity: 1;
+    }
+
+    .play-circle {
+      width: 50px;
+      height: 50px;
+      border-radius: var(--radius-full);
+      background: rgba(139, 92, 246, 0.9);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.6);
+      transform: scale(0.85);
+      transition: var(--transition);
+    }
+    .video-card:hover .play-circle {
+      transform: scale(1);
+    }
+
+    .badge-resolution {
+      position: absolute;
+      top: 0.6rem;
+      left: 0.6rem;
+      padding: 0.15rem 0.45rem;
+      border-radius: 4px;
+      background: rgba(0, 0, 0, 0.75);
+      border: 1px solid rgba(139, 92, 246, 0.35);
+      color: #d8b4fe;
+      font-size: 0.6875rem;
+      font-weight: 700;
+    }
+
+    .badge-duration {
+      position: absolute;
+      bottom: 0.6rem;
+      right: 0.6rem;
+      padding: 0.15rem 0.45rem;
+      border-radius: 4px;
+      background: rgba(0, 0, 0, 0.8);
+      color: #ffffff;
+      font-size: 0.6875rem;
+      font-weight: 600;
+      font-family: monospace;
+    }
+
+    .badge-category-tag {
+      position: absolute;
+      bottom: 0.6rem;
+      left: 0.6rem;
+      color: #fda4af;
+      font-size: 0.6875rem;
+      font-weight: 700;
+      text-shadow: 0 1px 3px rgba(0,0,0,0.8);
+    }
+
+    .card-body {
+      padding: 1rem;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      justify-content: space-between;
+    }
+
+    .card-title {
+      font-size: 0.9375rem;
+      font-weight: 600;
+      color: #f1f5f9;
+      line-height: 1.35;
+      margin-bottom: 0.4rem;
+      display: -webkit-box;
+      -webkit-line-clamp: 1;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      transition: var(--transition);
+    }
+    .video-card:hover .card-title {
+      color: #c084fc;
+    }
+
+    .card-desc {
+      font-size: 0.75rem;
+      color: var(--text-dim);
+      line-height: 1.5;
+      margin-bottom: 0.75rem;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .card-footer {
+      padding-top: 0.6rem;
+      border-top: 1px solid #1e1e2d;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 0.75rem;
+      color: var(--text-dim);
+    }
+
+    .card-meta-left {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .rating-positive {
+      color: #34d399;
+      font-weight: 600;
+    }
+
+    /* ==========================================================================
+       PAGINATION / LOAD MORE
+       ========================================================================== */
+    .load-more-wrap {
+      display: flex;
+      justify-content: center;
+      margin: 1rem 0 4rem;
+    }
+
+    .btn-load-more {
+      padding: 0.85rem 2.25rem;
+      background: #151522;
+      border: 1px solid var(--border-subtle);
+      color: var(--text-main);
+      border-radius: var(--radius-full);
+      font-size: 0.875rem;
+      font-weight: 600;
+      transition: var(--transition);
+    }
+    .btn-load-more:hover {
+      background: var(--accent-purple);
+      border-color: var(--accent-purple);
+      color: #ffffff;
+      box-shadow: 0 8px 24px rgba(139, 92, 246, 0.4);
+    }
+
+    /* ==========================================================================
+       VIDEO DETAIL & PLAYER MODAL
+       ========================================================================== */
+    .player-modal-backdrop {
+      position: fixed;
+      inset: 0;
+      z-index: 1000;
+      background: rgba(0, 0, 0, 0.92);
+      backdrop-filter: blur(14px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+      opacity: 0;
+      visibility: hidden;
+      transition: var(--transition);
+    }
+    .player-modal-backdrop.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .player-modal {
+      background: #0f0f18;
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      max-width: 960px;
+      width: 100%;
+      overflow: hidden;
+      box-shadow: 0 25px 60px rgba(0,0,0,0.9);
+      position: relative;
+    }
+
+    .player-screen {
+      position: relative;
+      aspect-ratio: 16 / 9;
+      background: #000;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .player-screen img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: brightness(0.9);
+    }
+
+    .player-ctrl-center {
+      position: absolute;
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      background: rgba(0,0,0,0.65);
+      border: 1px solid rgba(255,255,255,0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 1.5rem;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    .player-ctrl-center:hover {
+      background: var(--accent-purple);
+      transform: scale(1.1);
+    }
+
+    .player-close-btn {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      z-index: 10;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: rgba(0,0,0,0.7);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.25rem;
+      cursor: pointer;
+      border: 1px solid rgba(255,255,255,0.15);
+    }
+    .player-close-btn:hover {
+      background: var(--accent-crimson);
+    }
+
+    .player-info-body {
+      padding: 1.5rem;
+    }
+
+    .player-header-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .player-title {
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 0.25rem;
+    }
+
+    .player-actions-row {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .btn-action {
+      padding: 0.45rem 0.9rem;
+      background: #1b1b2a;
+      border: 1px solid #2e2e46;
+      border-radius: var(--radius-sm);
+      color: var(--text-main);
+      font-size: 0.75rem;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: var(--transition);
+    }
+    .btn-action:hover {
+      background: #25253a;
+      border-color: var(--accent-purple);
+    }
+    .btn-action.liked {
+      background: var(--accent-purple);
+      color: #fff;
+    }
+
+    .btn-report {
+      background: rgba(225, 29, 72, 0.15);
+      border-color: rgba(225, 29, 72, 0.4);
+      color: #fda4af;
+    }
+    .btn-report:hover {
+      background: var(--accent-crimson);
+      color: #fff;
+    }
+
+    .statute-box {
+      margin-top: 1rem;
+      padding: 0.75rem 1rem;
+      background: #141420;
+      border: 1px solid #222234;
+      border-radius: var(--radius-sm);
+      font-size: 0.75rem;
+      color: var(--text-dim);
+      line-height: 1.5;
+    }
+
+    /* ==========================================================================
+       CONTENT REPORT MODAL
+       ========================================================================== */
+    .report-modal-backdrop {
+      position: fixed;
+      inset: 0;
+      z-index: 1050;
+      background: rgba(0, 0, 0, 0.88);
+      backdrop-filter: blur(10px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+      opacity: 0;
+      visibility: hidden;
+      transition: var(--transition);
+    }
+    .report-modal-backdrop.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .report-card {
+      background: #11111b;
+      border: 1px solid #3d2948;
+      border-radius: var(--radius-lg);
+      max-width: 480px;
+      width: 100%;
+      padding: 2rem;
+      box-shadow: 0 25px 50px rgba(0,0,0,0.8);
+      position: relative;
+    }
+
+    /* ==========================================================================
+       FOOTER & COMPLIANCE
+       ========================================================================== */
+    .site-footer {
+      background: #060609;
+      border-top: 1px solid var(--border-subtle);
+      padding: 3.5rem 0 2.5rem;
+      margin-top: 4rem;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 2.5rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .footer-brand-title {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 0.75rem;
+    }
+
+    .footer-brand-desc {
+      font-size: 0.8125rem;
+      color: var(--text-dim);
+      line-height: 1.6;
+      max-width: 380px;
+      margin-bottom: 1rem;
+    }
+
+    .footer-col-title {
+      font-size: 0.875rem;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .footer-links-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+
+    .footer-link {
+      font-size: 0.8125rem;
+      color: var(--text-muted);
+      transition: var(--transition);
+    }
+    .footer-link:hover {
+      color: var(--accent-purple);
+    }
+
+    .footer-compliance-strip {
+      padding-top: 2rem;
+      border-top: 1px solid #1a1a26;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+      font-size: 0.75rem;
+      color: var(--text-dim);
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+      .nav-links {
+        display: none;
+      }
+      .search-input {
+        width: 160px;
+      }
+      .search-input:focus {
+        width: 200px;
+      }
+      .hero-card {
+        aspect-ratio: 16 / 9;
+        min-height: 340px;
+      }
+      .hero-content {
+        padding: 1.5rem;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+      .age-actions {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ========================================================================
+       18+ AGE VERIFICATION MODAL OVERLAY
+       ======================================================================== -->
+  <div id="ageGate" class="age-gate-backdrop">
+    <div class="age-gate-modal">
+      <div class="age-badge">RESTRICTED ACCESS · 18+ ONLY</div>
+      <!-- PLACEHOLDER: WEBSITE_NAME -->
+      <h2 class="age-title">VelvetNoir</h2>
+      <p class="age-text">
+        This platform contains mature adult entertainment, sensual themes, and artistic cinema created exclusively for consenting adults of legal age (18+, or 21 where legally applicable).
+      </p>
+
+      <div class="age-compliance-box">
+        <p>✓ All performers are verified consenting adults aged 18+ (18 U.S.C. 2257).</p>
+        <p>✓ Zero-tolerance for non-consensual material, minors, or illicit media.</p>
+        <p>✓ High-performance discrete encrypted transmission.</p>
+      </div>
+
+      <div class="age-actions">
+        <button type="button" class="btn-exit" onclick="handleAgeExit()">Exit Site</button>
+        <button type="button" class="btn-enter" onclick="handleAgeEnter()">I Am 18+ · Enter</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       HEADER NAVIGATION (Sticky, 3-Zone Architecture)
+       ======================================================================== -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <!-- Zone 1: Brand Wordmark -->
+      <!-- PLACEHOLDER: LOGO_IMAGE_OR_TEXT -->
+      <a href="#" class="brand-logo" onclick="filterCategory('All Content')">
+        VELVETNOIR<span class="dot">.</span>
+      </a>
+
+      <!-- Zone 2: Navigation Links -->
+      <nav class="nav-links">
+        <a href="#featured" class="nav-link active">Featured</a>
+        <a href="#trending" class="nav-link">Trending</a>
+        <a href="#latest" class="nav-link">Latest Releases</a>
+        <a href="#compliance" class="nav-link">Compliance 2257</a>
+      </nav>
+
+      <!-- Zone 3: Search Bar & VIP Access -->
+      <div class="header-actions">
+        <div class="search-bar">
+          <svg class="search-icon" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          <input type="text" id="searchInput" class="search-input" placeholder="Search releases..." oninput="handleSearch(this.value)">
+        </div>
+        <button class="btn-vip" onclick="alert('VIP Membership grants unlimited 4K HDR downloads and behind-the-scenes passes.')">VIP Pass</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ========================================================================
+       HERO FEATURED SPOTLIGHT
+       ======================================================================== -->
+  <main class="container">
+    <section class="hero-section" id="featured">
+      <div class="hero-card" onclick="openPlayer('Midnight Velvet: The Penthouse Sessions', 'VIP Premiere', '42:15', 'https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=1200&q=80', 'An exclusive cinematic evening set atop the metropolitan skyline with rich ambient violet tones.')">
+        <!-- PLACEHOLDER: HERO_BACKGROUND_IMAGE -->
+        <img class="hero-bg" src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=1200&q=80" alt="Featured Release">
+        <div class="hero-scrim"></div>
+        <div class="hero-content">
+          <div class="hero-kicker">★ Featured World Premiere</div>
+          <!-- PLACEHOLDER: HERO_TITLE -->
+          <h1 class="hero-title">Midnight Velvet: The Penthouse Sessions</h1>
+          <div class="hero-meta">
+            <span class="tag-quality">4K UHD</span>
+            <span>·</span>
+            <span>42:15 Min</span>
+            <span>·</span>
+            <span>99% Rating</span>
+            <span>·</span>
+            <span>VIP Premiere</span>
+          </div>
+          <p class="hero-desc">
+            An exclusive cinematic evening set atop the metropolitan skyline. Intimate ambient lighting, rich midnight tones, and premier 4K high-dynamic-range cinematography capturing sophisticated nightlife elegance.
+          </p>
+          <div class="hero-buttons">
+            <button class="btn-play-hero">
+              <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+              Watch Premiere
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         CATEGORY NAVIGATION TABS
+         ======================================================================== -->
+    <section class="category-section">
+      <div class="category-bar">
+        <!-- PLACEHOLDER: CATEGORIES_LIST -->
+        <button class="category-btn active" onclick="filterCategory('All Content', this)">All Content</button>
+        <button class="category-btn" onclick="filterCategory('VIP Premiere', this)">VIP Premiere</button>
+        <button class="category-btn" onclick="filterCategory('Cinema Noir', this)">Cinema Noir</button>
+        <button class="category-btn" onclick="filterCategory('Glamour & Style', this)">Glamour &amp; Style</button>
+        <button class="category-btn" onclick="filterCategory('Midnight Romance', this)">Midnight Romance</button>
+        <button class="category-btn" onclick="filterCategory('Nightlife Sessions', this)">Nightlife Sessions</button>
+        <button class="category-btn" onclick="filterCategory('Behind The Scenes', this)">Behind The Scenes</button>
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         CONTENT RELEASES GRID (Interactive Cards)
+         ======================================================================== -->
+    <section id="trending">
+      <div class="section-title-wrap">
+        <h2 class="section-title">Trending &amp; Popular Releases</h2>
+        <span class="section-link" id="resultsCount">Showing 8 Releases</span>
+      </div>
+
+      <div class="video-grid" id="videoGrid">
+        <!-- PLACEHOLDER: POST_ITEM_START (Repeatable in Blogger templates) -->
+        
+        <!-- Card 1 -->
+        <div class="video-card" data-category="VIP Premiere" data-title="Midnight Velvet: The Penthouse Sessions" onclick="openPlayer('Midnight Velvet: The Penthouse Sessions', 'VIP Premiere', '42:15', 'https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=800&q=80', 'An exclusive cinematic evening set atop the metropolitan skyline.')">
+          <div class="card-thumb-wrap">
+            <img class="card-thumb" src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=800&q=80" alt="Penthouse Sessions">
+            <div class="card-thumb-scrim"></div>
+            <div class="card-play-overlay"><div class="play-circle">▶</div></div>
+            <span class="badge-resolution">4K UHD</span>
+            <span class="badge-duration">42:15</span>
+            <span class="badge-category-tag">VIP Premiere</span>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">Midnight Velvet: The Penthouse Sessions</h3>
+            <p class="card-desc">Atmospheric penthouse lounge views and intimate champagne night.</p>
+            <div class="card-footer">
+              <div class="card-meta-left">
+                <span>412K views</span>
+                <span>·</span>
+                <span class="rating-positive">99%</span>
+              </div>
+              <span>2 hours ago</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="video-card" data-category="Cinema Noir" data-title="The Venice Masquerade: Midnight Ball" onclick="openPlayer('The Venice Masquerade: Midnight Ball', 'Cinema Noir', '36:40', 'https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=800&q=80', 'A theatrical masquerade gala bathed in crimson velvet and candelabras.')">
+          <div class="card-thumb-wrap">
+            <img class="card-thumb" src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=800&q=80" alt="Venice Masquerade">
+            <div class="card-thumb-scrim"></div>
+            <div class="card-play-overlay"><div class="play-circle">▶</div></div>
+            <span class="badge-resolution">4K UHD</span>
+            <span class="badge-duration">36:40</span>
+            <span class="badge-category-tag">Cinema Noir</span>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">The Venice Masquerade: Midnight Ball</h3>
+            <p class="card-desc">Theatrical ballroom costumes and mysterious classical score.</p>
+            <div class="card-footer">
+              <div class="card-meta-left">
+                <span>289K views</span>
+                <span>·</span>
+                <span class="rating-positive">98%</span>
+              </div>
+              <span>Yesterday</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="video-card" data-category="Glamour & Style" data-title="Satin & Amber: Private Studio Haute" onclick="openPlayer('Satin & Amber: Private Studio Haute', 'Glamour & Style', '29:50', 'https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&w=800&q=80', 'Sensual high-fashion studio editorial featuring vintage velvet chaise lounges.')">
+          <div class="card-thumb-wrap">
+            <img class="card-thumb" src="https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&w=800&q=80" alt="Satin & Amber">
+            <div class="card-thumb-scrim"></div>
+            <div class="card-play-overlay"><div class="play-circle">▶</div></div>
+            <span class="badge-resolution">4K UHD</span>
+            <span class="badge-duration">29:50</span>
+            <span class="badge-category-tag">Glamour &amp; Style</span>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">Satin &amp; Amber: Private Studio Haute</h3>
+            <p class="card-desc">Sensual high-fashion studio editorial with dramatic incandescent lighting.</p>
+            <div class="card-footer">
+              <div class="card-meta-left">
+                <span>350K views</span>
+                <span>·</span>
+                <span class="rating-positive">97%</span>
+              </div>
+              <span>3 days ago</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="video-card" data-category="Nightlife Sessions" data-title="Crimson Lounge: After Hours Reverie" onclick="openPlayer('Crimson Lounge: After Hours Reverie', 'Nightlife Sessions', '25:12', 'https://images.unsplash.com/photo-1572116469696-31de0f17cc34?auto=format&fit=crop&w=800&q=80', 'Downbeat jazz lounge vibes with moody cocktail lighting.')">
+          <div class="card-thumb-wrap">
+            <img class="card-thumb" src="https://images.unsplash.com/photo-1572116469696-31de0f17cc34?auto=format&fit=crop&w=800&q=80" alt="Crimson Lounge">
+            <div class="card-thumb-scrim"></div>
+            <div class="card-play-overlay"><div class="play-circle">▶</div></div>
+            <span class="badge-resolution">1080p HD</span>
+            <span class="badge-duration">25:12</span>
+            <span class="badge-category-tag">Nightlife Sessions</span>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">Crimson Lounge: After Hours Reverie</h3>
+            <p class="card-desc">Slow embers, velvet booths, and conversation into the dawn.</p>
+            <div class="card-footer">
+              <div class="card-meta-left">
+                <span>194K views</span>
+                <span>·</span>
+                <span class="rating-positive">96%</span>
+              </div>
+              <span>4 days ago</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 5 -->
+        <div class="video-card" data-category="VIP Premiere" data-title="Neon Desire: Tokyo Midnight Skyline" onclick="openPlayer('Neon Desire: Tokyo Midnight Skyline', 'VIP Premiere', '38:20', 'https://images.unsplash.com/photo-1503899036084-c55cdd92da26?auto=format&fit=crop&w=800&q=80', 'Reflections of Shibuya rain on panoramic glass.')">
+          <div class="card-thumb-wrap">
+            <img class="card-thumb" src="https://images.unsplash.com/photo-1503899036084-c55cdd92da26?auto=format&fit=crop&w=800&q=80" alt="Tokyo Midnight">
+            <div class="card-thumb-scrim"></div>
+            <div class="card-play-overlay"><div class="play-circle">▶</div></div>
+            <span class="badge-resolution">4K UHD</span>
+            <span class="badge-duration">38:20</span>
+            <span class="badge-category-tag">VIP Premiere</span>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">Neon Desire: Tokyo Midnight Skyline</h3>
+            <p class="card-desc">Cyberpunk neon hues meet soft sensual pacing overlooking the tower.</p>
+            <div class="card-footer">
+              <div class="card-meta-left">
+                <span>520K views</span>
+                <span>·</span>
+                <span class="rating-positive">99%</span>
+              </div>
+              <span>5 days ago</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 6 -->
+        <div class="video-card" data-category="Midnight Romance" data-title="Whispers in Silk: The Parisian Suite" onclick="openPlayer('Whispers in Silk: The Parisian Suite', 'Midnight Romance', '31:45', 'https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=800&q=80', 'An idyllic apartment overlooking the Seine at dusk.')">
+          <div class="card-thumb-wrap">
+            <img class="card-thumb" src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=800&q=80" alt="Parisian Suite">
+            <div class="card-thumb-scrim"></div>
+            <div class="card-play-overlay"><div class="play-circle">▶</div></div>
+            <span class="badge-resolution">1080p HD</span>
+            <span class="badge-duration">31:45</span>
+            <span class="badge-category-tag">Midnight Romance</span>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">Whispers in Silk: The Parisian Suite</h3>
+            <p class="card-desc">French balcony breezes, silk linens, and timeless intimacy.</p>
+            <div class="card-footer">
+              <div class="card-meta-left">
+                <span>230K views</span>
+                <span>·</span>
+                <span class="rating-positive">95%</span>
+              </div>
+              <span>1 week ago</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 7 -->
+        <div class="video-card" data-category="Cinema Noir" data-title="Director's Cut: The Obsidian Chandelier" onclick="openPlayer('Director’s Cut: The Obsidian Chandelier', 'Cinema Noir', '44:10', 'https://images.unsplash.com/photo-1470225620780-dba8ba36b745?auto=format&fit=crop&w=800&q=80', 'Uncut extended edition with high-fidelity sound.')">
+          <div class="card-thumb-wrap">
+            <img class="card-thumb" src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?auto=format&fit=crop&w=800&q=80" alt="Obsidian Chandelier">
+            <div class="card-thumb-scrim"></div>
+            <div class="card-play-overlay"><div class="play-circle">▶</div></div>
+            <span class="badge-resolution">4K UHD</span>
+            <span class="badge-duration">44:10</span>
+            <span class="badge-category-tag">Cinema Noir</span>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">Director's Cut: The Obsidian Chandelier</h3>
+            <p class="card-desc">Uncut extended edition with multi-angle perspectives and high-fidelity sound.</p>
+            <div class="card-footer">
+              <div class="card-meta-left">
+                <span>167K views</span>
+                <span>·</span>
+                <span class="rating-positive">98%</span>
+              </div>
+              <span>1 week ago</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 8 -->
+        <div class="video-card" data-category="Behind The Scenes" data-title="Gold Velvet & Champagne: Backstage" onclick="openPlayer('Gold Velvet & Champagne: Backstage', 'Behind The Scenes', '22:30', 'https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=800&q=80', 'Candid look behind the camera during the lookbook shoots.')">
+          <div class="card-thumb-wrap">
+            <img class="card-thumb" src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=800&q=80" alt="Backstage Access">
+            <div class="card-thumb-scrim"></div>
+            <div class="card-play-overlay"><div class="play-circle">▶</div></div>
+            <span class="badge-resolution">1080p HD</span>
+            <span class="badge-duration">22:30</span>
+            <span class="badge-category-tag">Behind The Scenes</span>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">Gold Velvet &amp; Champagne: Backstage</h3>
+            <p class="card-desc">Candid look behind the camera during our seasonal lookbook production.</p>
+            <div class="card-footer">
+              <div class="card-meta-left">
+                <span>142K views</span>
+                <span>·</span>
+                <span class="rating-positive">94%</span>
+              </div>
+              <span>2 weeks ago</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- PLACEHOLDER: POST_ITEM_END -->
+      </div>
+
+      <!-- Load More Button -->
+      <div class="load-more-wrap">
+        <button class="btn-load-more" onclick="handleLoadMore(this)">Load More Releases</button>
+      </div>
+    </section>
+  </main>
+
+  <!-- ========================================================================
+       VIDEO PLAYER & DETAIL MODAL
+       ======================================================================== -->
+  <div id="playerModal" class="player-modal-backdrop" onclick="closePlayerOutside(event)">
+    <div class="player-modal">
+      <button class="player-close-btn" onclick="closePlayer()">&times;</button>
+      
+      <div class="player-screen">
+        <img id="playerScreenImg" src="" alt="Player Screen">
+        <div class="player-ctrl-center" id="playBtn" onclick="togglePlayState()">▶</div>
+      </div>
+
+      <div class="player-info-body">
+        <div class="player-header-row">
+          <div>
+            <h2 class="player-title" id="playerTitle">Title</h2>
+            <div style="font-size: 0.8125rem; color: var(--text-muted);">
+              <span id="playerCategory" style="color: var(--accent-purple); font-weight: 700;">Category</span>
+              <span>·</span>
+              <span id="playerDuration">Duration</span>
+              <span>·</span>
+              <span>4K High-Dynamic-Range</span>
+            </div>
+          </div>
+
+          <div class="player-actions-row">
+            <button class="btn-action" id="likeBtn" onclick="toggleLike()">
+              ♥ <span id="likeCount">14,200</span>
+            </button>
+            <button class="btn-action" onclick="copyShareUrl()">
+              🔗 Share
+            </button>
+            <button class="btn-action btn-report" onclick="openReportModal()">
+              ⚑ Report
+            </button>
+          </div>
+        </div>
+
+        <p id="playerDesc" style="font-size: 0.875rem; color: #cbd5e1; line-height: 1.6; margin-bottom: 1rem;">
+          Description
+        </p>
+
+        <!-- 18 U.S.C. 2257 Notice -->
+        <div class="statute-box" id="compliance">
+          <strong>18 U.S.C. § 2257 Record-Keeping Compliance:</strong> All persons depicted in any video or image on this platform were at least 18 years of age at the time of creation. Records required by law are maintained by the Records Custodian.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       CONTENT REPORT MODAL
+       ======================================================================== -->
+  <div id="reportModal" class="report-modal-backdrop">
+    <div class="report-card">
+      <button class="player-close-btn" onclick="closeReportModal()">&times;</button>
+      <h3 style="font-size: 1.25rem; font-weight: 700; color: #fff; margin-bottom: 0.5rem;">Report Content</h3>
+      <p style="font-size: 0.8125rem; color: var(--text-muted); margin-bottom: 1.25rem;">
+        We enforce an immediate takedown policy for non-consensual material, copyright complaints, or safety concerns.
+      </p>
+
+      <form onsubmit="handleReportSubmit(event)">
+        <div style="margin-bottom: 1rem;">
+          <label style="font-size: 0.75rem; color: var(--text-muted); display: block; margin-bottom: 0.4rem;">Violation Type</label>
+          <select style="width: 100%; padding: 0.6rem; background: #1a1a28; border: 1px solid var(--border-subtle); color: #fff; border-radius: var(--radius-sm); font-size: 0.8125rem;">
+            <option>Non-Consensual / Privacy Violation</option>
+            <option>Underage / Age Concern</option>
+            <option>DMCA Copyright Infringement</option>
+            <option>Spam / Misleading Description</option>
+          </select>
+        </div>
+
+        <div style="margin-bottom: 1.25rem;">
+          <label style="font-size: 0.75rem; color: var(--text-muted); display: block; margin-bottom: 0.4rem;">Details or URL evidence</label>
+          <textarea required rows="3" style="width: 100%; padding: 0.6rem; background: #1a1a28; border: 1px solid var(--border-subtle); color: #fff; border-radius: var(--radius-sm); font-size: 0.8125rem; resize: none;" placeholder="Please provide details..."></textarea>
+        </div>
+
+        <button type="submit" style="width: 100%; padding: 0.75rem; background: var(--accent-gradient); color: #fff; border-radius: var(--radius-md); font-weight: 700; font-size: 0.875rem;">
+          Submit Confidential Report
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       FOOTER & STATUTORY POLICIES
+       ======================================================================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <!-- PLACEHOLDER: WEBSITE_NAME -->
+          <div class="footer-brand-title">VELVETNOIR ENTERTAINMENT</div>
+          <p class="footer-brand-desc">
+            An independent cinema and digital entertainment platform catering exclusively to mature audiences. Delivering 4K HDR productions with strict ethical oversight, consenting adult verification, and digital safety standards.
+          </p>
+        </div>
+
+        <div>
+          <div class="footer-col-title">Navigation</div>
+          <ul class="footer-links-list">
+            <li><a href="#featured" class="footer-link">Featured Premiers</a></li>
+            <li><a href="#trending" class="footer-link">Trending Now</a></li>
+            <li><a href="#categories" class="footer-link">Categories</a></li>
+            <li><a href="#" class="footer-link" onclick="resetAgeGate(); return false;">Reset Age Gate</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="footer-col-title">Legal &amp; 2257</div>
+          <ul class="footer-links-list">
+            <li><a href="#compliance" class="footer-link">18 U.S.C. 2257 Notice</a></li>
+            <li><a href="#compliance" class="footer-link" onclick="alert('DMCA Notice: For copyright infringement claims, contact dmca@velvetnoir.internal for immediate 24-hr resolution.'); return false;">DMCA Takedown</a></li>
+            <li><a href="#" class="footer-link" onclick="openReportModal(); return false;">Report Content</a></li>
+            <li><a href="#" class="footer-link" onclick="alert('Terms: Access restricted strictly to consenting adults 18+. Unauthorized scraping or re-distribution is prohibited.'); return false;">Terms of Service</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="footer-col-title">Privacy &amp; Safety</div>
+          <ul class="footer-links-list">
+            <li><a href="#" class="footer-link" onclick="alert('Privacy: Encrypted session delivery with no tracking cookies or personal logs sold to 3rd parties.'); return false;">Privacy Policy</a></li>
+            <li><a href="#" class="footer-link" onclick="alert('Consensual Code: All media adheres strictly to verifiable consent protocols.'); return false;">Model Consent Policy</a></li>
+            <li><a href="#" class="footer-link" onclick="alert('Support: Reach out 24/7 to support@velvetnoir.internal'); return false;">Contact Support</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-compliance-strip">
+        <div>&copy; <span id="currentYear">2026</span> VelvetNoir Media LLC. All rights reserved. 18+ Adults Only.</div>
+        <div>Compliant with 18 U.S.C. 2257 Record-Keeping Requirements</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ========================================================================
+       VANILLA JAVASCRIPT LOGIC
+       ======================================================================== -->
+  <script>
+    // Set Year
+    document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+    // 1. Age Verification Check
+    function checkAgeVerification() {
+      const isVerified = localStorage.getItem('velvetnoir_age_verified');
+      const ageGate = document.getElementById('ageGate');
+      if (isVerified === 'true') {
+        ageGate.classList.add('hidden');
+      } else {
+        ageGate.classList.remove('hidden');
+      }
+    }
+
+    function handleAgeEnter() {
+      localStorage.setItem('velvetnoir_age_verified', 'true');
+      document.getElementById('ageGate').classList.add('hidden');
+    }
+
+    function handleAgeExit() {
+      window.location.href = 'https://www.google.com';
+    }
+
+    function resetAgeGate() {
+      localStorage.removeItem('velvetnoir_age_verified');
+      document.getElementById('ageGate').classList.remove('hidden');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // Run verification on initial load
+    checkAgeVerification();
+
+    // 2. Category Filter
+    function filterCategory(categoryName, btnEl) {
+      if (btnEl) {
+        document.querySelectorAll('.category-btn').forEach(btn => btn.classList.remove('active'));
+        btnEl.classList.add('active');
+      }
+
+      const cards = document.querySelectorAll('.video-card');
+      let visibleCount = 0;
+
+      cards.forEach(card => {
+        const cat = card.getAttribute('data-category');
+        if (categoryName === 'All Content' || cat === categoryName) {
+          card.style.display = 'flex';
+          visibleCount++;
+        } else {
+          card.style.display = 'none';
+        }
+      });
+
+      document.getElementById('resultsCount').textContent = `Showing ${visibleCount} Releases`;
+    }
+
+    // 3. Search Handler
+    function handleSearch(query) {
+      const q = query.toLowerCase().trim();
+      const cards = document.querySelectorAll('.video-card');
+      let visibleCount = 0;
+
+      cards.forEach(card => {
+        const title = (card.getAttribute('data-title') || '').toLowerCase();
+        const cat = (card.getAttribute('data-category') || '').toLowerCase();
+        if (title.includes(q) || cat.includes(q)) {
+          card.style.display = 'flex';
+          visibleCount++;
+        } else {
+          card.style.display = 'none';
+        }
+      });
+
+      document.getElementById('resultsCount').textContent = `Found ${visibleCount} Releases`;
+    }
+
+    // 4. Video Player Modal
+    let isPlaying = false;
+    let likeCount = 14200;
+    let isLiked = false;
+
+    function openPlayer(title, category, duration, imgUrl, desc) {
+      document.getElementById('playerTitle').textContent = title;
+      document.getElementById('playerCategory').textContent = category;
+      document.getElementById('playerDuration').textContent = duration;
+      document.getElementById('playerScreenImg').src = imgUrl;
+      document.getElementById('playerDesc').textContent = desc;
+
+      isPlaying = true;
+      document.getElementById('playBtn').textContent = '❚❚';
+      document.getElementById('playerModal').classList.add('active');
+    }
+
+    function closePlayer() {
+      document.getElementById('playerModal').classList.remove('active');
+      isPlaying = false;
+    }
+
+    function closePlayerOutside(e) {
+      if (e.target.id === 'playerModal') {
+        closePlayer();
+      }
+    }
+
+    function togglePlayState() {
+      isPlaying = !isPlaying;
+      document.getElementById('playBtn').textContent = isPlaying ? '❚❚' : '▶';
+    }
+
+    function toggleLike() {
+      const btn = document.getElementById('likeBtn');
+      const counter = document.getElementById('likeCount');
+      if (isLiked) {
+        likeCount--;
+        isLiked = false;
+        btn.classList.remove('liked');
+      } else {
+        likeCount++;
+        isLiked = true;
+        btn.classList.add('liked');
+      }
+      counter.textContent = likeCount.toLocaleString();
+    }
+
+    function copyShareUrl() {
+      navigator.clipboard?.writeText(window.location.href);
+      alert('Video share link copied to clipboard!');
+    }
+
+    // 5. Report Content Modal
+    function openReportModal() {
+      document.getElementById('reportModal').classList.add('active');
+    }
+
+    function closeReportModal() {
+      document.getElementById('reportModal').classList.remove('active');
+    }
+
+    function handleReportSubmit(e) {
+      e.preventDefault();
+      const ticket = 'REP-' + Math.floor(100000 + Math.random() * 900000);
+      alert(`Report submitted successfully! Case reference: ${ticket}. Our legal compliance team is reviewing the matter.`);
+      closeReportModal();
+    }
+
+    // 6. Load More Pagination Simulation
+    function handleLoadMore(btn) {
+      btn.textContent = 'Loading more releases...';
+      setTimeout(() => {
+        alert('All current season releases are loaded. New 4K titles are uploaded every Tuesday & Friday!');
+        btn.textContent = 'End of Releases';
+        btn.disabled = true;
+        btn.style.opacity = '0.5';
+      }, 700);
+    }
+  </script>
+</body>
+</html>
